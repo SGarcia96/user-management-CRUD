@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -35,7 +36,7 @@ public class PersonService {
         return personDao.deletePersonById(id);
     }
 
-    public int updatePerson(UUID id, Person newPerson) {
+    public int updatePerson(UUID id, @Valid Person newPerson) {
         return personDao.updatePersonById(id, newPerson);
     }
 }
